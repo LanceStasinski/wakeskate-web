@@ -1,9 +1,12 @@
 <div>
-  <h2 class="font-Poiret-One text-2xl">Search for your desired location</h2>
+  <h2 class='font-Poiret-One text-2xl'>Search for your desired location</h2>
   <Map::Input @query={{this.query}} @onSubmit={{this.postSearch}} />
   {{#if this.hasSearched}}
     <GMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{13}} as |map|>
       <map.marker @lat={{this.lat}} @lng={{this.lng}} />
     </GMap>
+    <div class='flex justify-center mt-6 mb-4'>
+      <BlueButton>Select This Location</BlueButton>
+    </div>
   {{/if}}
 </div>

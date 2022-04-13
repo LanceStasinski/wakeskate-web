@@ -19,6 +19,12 @@ module.exports = {
   env: {
     browser: true,
   },
+  'prettier/prettier': [
+    'error',
+    {
+      endOfLine: 'auto',
+    },
+  ],
   rules: {},
   overrides: [
     // node files
