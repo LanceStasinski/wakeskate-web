@@ -1,0 +1,14 @@
+<EmberWormhole @to='backdrop-hook'>
+  {{! template-lint-disable no-invalid-interactive }}
+  <div
+    class='h-screen w-screen bg-slate-400 opacity-70 z-10 fixed'
+    {{on 'click' @onClick}}
+  ></div>
+</EmberWormhole>
+<EmberWormhole @to='modal-hook'>
+  <div
+    class='w-3/4 left-[12.5%] mt-56 bg-white rounded-md shadow-md absolute z-20 p-4'
+  >
+    {{yield}}
+  </div>
+</EmberWormhole>

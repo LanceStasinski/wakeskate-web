@@ -1,3 +1,9 @@
 <GeneralContainer>
-  <Map />
+  <button type='button' {{on 'click' this.toggleModal}}>Open</button>
+  {{#if this.isShowingMap}}
+    <Modal @onClick={{this.toggleModal}}>
+      <Map />
+    </Modal>
+  {{/if}}
+
 </GeneralContainer>

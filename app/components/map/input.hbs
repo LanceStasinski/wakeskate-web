@@ -1,8 +1,9 @@
-<form class='my-4'>
+<form class='my-4' {{on 'submit' @onSubmit}}>
   <Input
+    @value={{@query}}
     aria-label='Enter a location'
     placeholder='Enter a location'
     class='border border-gray-1 w-3/4 px-2 py-1'
   />
-  <button type='button' class="border border-gray-1 py-1 px-2">Search</button>
+  <button type='submit' class='border border-gray-1 py-1 px-2'>Search</button>
 </form>

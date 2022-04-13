@@ -2,8 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
 
 .ember-google-map {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 400px;
 }
