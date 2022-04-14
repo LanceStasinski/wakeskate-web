@@ -16,6 +16,28 @@ module.exports = {
         'Poiret-One': ['Poiret One', 'sans-serif'],
         Roboto: ['Roboto', 'sans-serif'],
       },
+      keyframes: {
+        'slide-down': {
+          from: {
+            top: '0',
+          },
+          to: {
+            top: '14rem',
+          },
+        },
+        'slide-up': {
+          from: {
+            top: '14rem',
+          },
+          to: {
+            top: '-5rem',
+          },
+        },
+      },
+      animation: {
+        'slide-down': 'slide-down 300ms ease-out forwards',
+        'slide-up': 'slide-up 300ms ease-out forwards',
+      },
     },
   },
   plugins: [],

@@ -9,7 +9,7 @@ module.exports = function (defaults) {
     postcssOptions: {
       compile: {
         // track changes in template, css, scss, and tailwind config files
-        cacheInclude: [/.*\.(css|scss|hbs)$/, /.tailwind\.config\.js$/],
+        cacheInclude: [/.*\.(css|scss|hbs)$/, /tailwind\.config\.js$/],
         plugins: [
           {
             module: autoprefixer,
