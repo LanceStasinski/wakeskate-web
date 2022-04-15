@@ -2,8 +2,10 @@
   <button type='button' {{on 'click' this.toggleModal}}>Open</button>
   {{#if this.isShowingMap}}
     <Modal @onClick={{this.toggleModal}}>
-      <Map />
+      <Map @close={{this.close}} />
     </Modal>
   {{/if}}
-
+  {{#unless this.isShowingMap}}
+    <div>{{this.lat}}</div>
+  {{/unless}}
 </GeneralContainer>

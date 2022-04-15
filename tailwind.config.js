@@ -22,7 +22,7 @@ module.exports = {
             top: '0',
           },
           to: {
-            top: '14rem',
+            top: '10rem',
           },
         },
         'slide-up': {

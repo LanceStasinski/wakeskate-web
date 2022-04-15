@@ -6,7 +6,7 @@
       <map.marker @lat={{this.lat}} @lng={{this.lng}} />
     </GMap>
     <div class='flex justify-center mt-6 mb-4'>
-      <BlueButton>Select This Location</BlueButton>
+      <BlueButton {{on 'click' (fn this.selectLocation @close)}}>Select This Location</BlueButton>
     </div>
   {{/if}}
 </div>

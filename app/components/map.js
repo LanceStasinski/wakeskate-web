@@ -3,8 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import fetch from 'fetch';
 import ENV from 'wakeskate-web-2/config/environment';
+import { inject as service } from '@ember/service';
 
 export default class MapComponent extends Component {
+  @service('location') location;
+
   @tracked query = '';
   @tracked lat = 0;
   @tracked lng = 0;
@@ -31,5 +34,13 @@ export default class MapComponent extends Component {
     if (this.lat && this.lng) {
       this.hasSearched = true;
     }
+  }
+
+  @action selectLocation(close) {
+    this.location.location = {
+      lat: this.lat,
+      lng: this.lng,
+    };
+    close();
   }
 }
