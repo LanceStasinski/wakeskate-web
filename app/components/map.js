@@ -37,6 +37,19 @@ export default class MapComponent extends Component {
   }
 
   @action selectLocation(close) {
+    const coordinates = {
+      lat: this.lat,
+      lng: this.lng
+    }
+    const response = await fetch(`${ENV.REST_API}/weather`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': "application/json",
+      },
+      body: JSON.stringify(coordinates)
+    });
+    const weatherData = await response.json();
+    
     this.location.location = {
       lat: this.lat,
       lng: this.lng,
