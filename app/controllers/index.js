@@ -3,7 +3,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-
 export default class IndexController extends Controller {
   @service('location') location;
 
@@ -18,5 +17,4 @@ export default class IndexController extends Controller {
   @action close() {
     this.isShowingMap = false;
   }
-
 }

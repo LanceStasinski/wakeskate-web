@@ -15,7 +15,7 @@ export default class MapComponent extends Component {
 
   @action async postSearch(event) {
     event.preventDefault();
-    console.log(this.query);
+    this.location.address = this.query;
     const data = { location: this.query };
     const response = await fetch(`${ENV.REST_API}/geocode/`, {
       method: 'POST',
@@ -26,8 +26,6 @@ export default class MapComponent extends Component {
     });
     const responseData = await response.json();
 
-    console.log(responseData);
-
     this.lat = responseData.lat;
     this.lng = responseData.lng;
 
@@ -36,7 +34,8 @@ export default class MapComponent extends Component {
     }
   }
 
-  @action selectLocation(close) {
+  @action async selectLocation(close) {
+    // add save to local storage functionality
     const coordinates = {
       lat: this.lat,
       lng: this.lng
@@ -49,7 +48,7 @@ export default class MapComponent extends Component {
       body: JSON.stringify(coordinates)
     });
     const weatherData = await response.json();
-    
+    this.location.weather = weatherData;
     this.location.location = {
       lat: this.lat,
       lng: this.lng,
