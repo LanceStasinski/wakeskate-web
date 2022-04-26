@@ -6,28 +6,51 @@ import { inject as service } from '@ember/service';
 export default class WeatherComponent extends Component {
   @service('location') location;
 
+  getDateInfo() {
+    const { day_of_week, month, day, datetime, hour, minutes } =
+      this.location.weather.current.date;
+    return { day_of_week, month, day, datetime, hour, minutes };
+  }
 
-  @tracked dayOfWeek = this.location.weather.current.date.day_of_week;
-  @tracked month = this.location.weather.current.date.month;
-  @tracked day = this.location.weather.current.date.day;
-  @tracked datetime = this.location.weather.current.date.datetime;
+  get dayOfWeek() {
+    const { day_of_week } = this.getDateInfo();
+    return day_of_week;
+  }
+
+  get month() {
+    const { month } = this.getDateInfo();
+    return month;
+  }
+
+  get day() {
+    const { day } = this.getDateInfo();
+    return day;
+  }
+
+  get datetime() {
+    const { datetime } = this.getDateInfo();
+    return datetime;
+  }
 
   get hour() {
-    if (this.location.weather.current.date.hour > 12) {
-      return this.location.weather.current.date.hour - 12;
+    const { hour } = this.getDateInfo();
+    if (hour > 12) {
+      return hour - 12;
     }
-    return this.location.weather.current.date.hour;
+    return hour;
   }
 
   get amOrPm() {
-    if (this.location.weather.current.date.hour > 12) {
+    const { hour } = this.getDateInfo();
+    if (hour > 12) {
       return 'PM';
     }
     return 'AM';
   }
 
   get time() {
-    return `${this.hour}:${this.location.weather.current.date.minutes} ${this.amOrPm}`;
+    const { minutes } = this.getDateInfo();
+    return `${this.hour}:${minutes} ${this.amOrPm}`;
   }
 
   get address() {
