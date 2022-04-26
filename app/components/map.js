@@ -53,6 +53,7 @@ export default class MapComponent extends Component {
       lat: this.lat,
       lng: this.lng,
     };
+    console.log(this.location.weather)
     close();
   }
 }
