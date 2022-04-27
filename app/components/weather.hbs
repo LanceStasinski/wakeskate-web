@@ -1,10 +1,14 @@
-<main>
-  <div>
+<main class="mt-16 mx-4">
+  <div class="text-orange-1 flex justify-between text-lg font-Roboto">
     <h2>{{this.address}}</h2>
-    <h2><time datetime={{this.datetime}}>{{this.time}}
-        {{this.dayOfWeek}}
+    <h2>
+      <time datetime={{this.datetime}}>
+        {{this.time}}
+        {{this.dayOfWeek}}, 
         {{this.month}}
-        {{this.day}}</time></h2>
+        {{this.day}}
+      </time>
+    </h2>
   </div>
-
+  <Weather::Current />
 </main>

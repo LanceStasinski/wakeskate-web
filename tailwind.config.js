@@ -4,13 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        perfect: '#4dac26',
-        good: '#b8e186',
-        okay: '#f1b6da',
-        poor: '#d01c8b',
-        'wet-suit': '#00E0FF',
+        'green-1': '#46DD2D',
+        'yellow-1': '#D4F411',
+        'orange-2': '#FFA800',
+        'red-1': '#FF2E00',
         'gray-1': '#444444',
         'gray-2': '#666666',
+        'gray-3': '#2B2B2B',
+        'blue-1': '#00E0FF',
+        'orange-1': '#ED6E4D',
       },
       fontFamily: {
         'Poiret-One': ['Poiret One', 'sans-serif'],

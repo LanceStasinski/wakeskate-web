@@ -36,21 +36,23 @@ export default class WeatherComponent extends Component {
     const { hour } = this.getDateInfo();
     if (hour > 12) {
       return hour - 12;
+    } else {
+      return hour;
     }
-    return hour;
   }
 
   get amOrPm() {
     const { hour } = this.getDateInfo();
     if (hour > 12) {
-      return 'PM';
+      return 'pm';
+    } else {
+      return 'am';
     }
-    return 'AM';
   }
 
   get time() {
     const { minutes } = this.getDateInfo();
-    return `${this.hour}:${minutes} ${this.amOrPm}`;
+    return `${this.hour}:${minutes}${this.amOrPm}`;
   }
 
   get address() {

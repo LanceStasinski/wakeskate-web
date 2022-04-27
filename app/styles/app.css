@@ -9,3 +9,23 @@
   width: 100%;
   height: 400px;
 }
+
+.wetsuit {
+  color: #00E0FF;
+}
+
+.perfect {
+  color: #46DD2D;
+}
+
+.good {
+  color: #D4F411;
+}
+
+.okay {
+  color: #FFA800;
+}
+
+.poor {
+  color: #FF2E00;
+}
