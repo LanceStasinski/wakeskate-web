@@ -1,8 +1,14 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+
+export const iconAlt = {
+  wetsuit: 'Blue face with a moderate smile.',
+  perfect: 'Green smiley face with sunglasses.',
+  good: 'Yellow face with big smile.',
+  okay: 'Orange face with a moderate smile.',
+  bad: 'Red sad face.',
+};
 
 export default class WeatherCurrentComponent extends Component {
   @service('location') location;
@@ -16,28 +22,23 @@ export default class WeatherCurrentComponent extends Component {
   get score() {
     const { rating } = this.getCurrentInfo();
     let image;
-    let alt;
+    let alt = iconAlt[rating];
     let description;
     if (rating === 'wetsuit') {
-      alt = 'Jacket';
       image = 'wetsuit';
       description = 'Wetsuit recommended';
     } else if (rating === 'perfect') {
-      alt = 'Smiley face with sunglasses';
       image = 'perfect';
       description = 'Perfect!';
     } else if (rating === 'good') {
-      alt = 'Face with big smile';
       image = 'good';
       description = 'Good!';
     } else if (rating === 'okay') {
-      alt = 'Face with moderate smile';
       image = 'okay';
       description = 'Not too bad...';
     } else {
-      alt = 'Sad face';
       image = 'poor';
-      description = 'Not worth it.';
+      description = 'Not worth it';
     }
     const imageSrc = `/assets/icons/${image}.svg`;
     return { alt, imageSrc, image, description };
@@ -64,9 +65,7 @@ export default class WeatherCurrentComponent extends Component {
     const { wind } = this.getCurrentInfo();
     const windSpeed = Math.floor(wind.wind_speed);
     const windDeg = wind.wind_deg;
-    const windDegStyle = htmlSafe(
-      `transform: rotate(${windDeg}deg)`
-    );
+    const windDegStyle = htmlSafe(`transform: rotate(${windDeg}deg)`);
     const icon = `/assets/icons/wind.svg`;
     return { windSpeed, windDeg, icon, windDegStyle };
   }

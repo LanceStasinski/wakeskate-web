@@ -29,3 +29,17 @@
 .poor {
   color: #FF2E00;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ED6E4D;
+  border-radius: 5px;
+}

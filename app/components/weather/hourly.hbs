@@ -1,0 +1,8 @@
+<section class='bg-gray-2 border-y-2 border-y-blue-1'>
+  <ul class= "flex overflow-x-auto custom-scrollbar">
+    {{#each this.hourly as |hour|}}
+      <Weather::Hour @hour={{hour}} />
+    {{/each}}
+  </ul>
+
+</section>
