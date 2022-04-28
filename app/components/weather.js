@@ -43,7 +43,7 @@ export default class WeatherComponent extends Component {
 
   get amOrPm() {
     const { hour } = this.getDateInfo();
-    if (hour > 12) {
+    if (hour >= 12) {
       return 'pm';
     } else {
       return 'am';

@@ -1,29 +1,34 @@
-<section class='grid grid-cols-[50%_50%] font-Roboto text-orange-1 mt-4'>
-  <div class='flex flex-col py-4 items-center'>
-    <img class='w-52 h-52' alt={{this.score.alt}} src={{this.score.imageSrc}} />
-    <p class={{concat 'mt-4 text-center ' this.score.image }}>{{concat
-        'mt-4 text-center '
-        this.score.color
-      }}</p>
+<section class='grid grid-cols-[50%_50%] font-Roboto text-blue-1 mt-4'>
+  <div class='flex flex-col py-4 items-center justify-center'>
+    <img
+      class='w-52 h-52'
+      alt={{this.score.alt}}
+      src={{this.score.imageSrc}}
+    />
+    <p
+      class={{concat 'mt-4 text-center ' this.score.image}}
+    >{{this.score.description}}</p>
   </div>
   <div class='grid grid-cols-[50%_50%]'>
     <div class='grid grid-rows-[50%_50%]'>
       <div
-        class='flex flex-col items-center justify-center border-b-2 border-b-blue-1'
+        class='flex flex-col items-center justify-center border-b-2 border-b-orange-1'
       >
         <img src={{this.weatherData.icon}} alt={{this.weatherData.alt}} />
         <p class='text-center'>{{this.weatherData.description}}</p>
       </div>
       <div class='flex flex-col items-center justify-center text-center'>
-        <p class='text-2xl'>{{this.tempData.temp}} °F</p>
-        <p class='text-sm'>Feels like: {{this.tempData.feelsLike}} °F</p>
+        <p class='text-2xl'>{{this.tempData.temp}}°F</p>
+        <p class='text-sm'>Feels like: {{this.tempData.feelsLike}}°F</p>
       </div>
     </div>
     <div
-      class='border-l-2 border-l-blue-1 flex flex-col items-center justify-center p-4 text-center'
+      class='border-l-2 border-l-orange-1 flex flex-col items-center justify-center p-4 text-center'
     >
+      {{!-- template-lint-disable style-concatenation --}}
       <img
-        class='w-52 h-52 rotate-[90deg]'
+        class="w-40 h-40"
+        style={{this.windData.windDegStyle}}
         src={{this.windData.icon}}
         alt={{concat 'Arrow pointing ' this.windData.windDeg ' degrees'}}
       />
