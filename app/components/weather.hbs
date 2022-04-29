@@ -1,10 +1,12 @@
-<main class="mt-16 p-4 bg-gray-3 rounded-md max-w-[800px] shadow-2xl">
-  <div class="text-blue-1 flex justify-between text-lg font-Poiret-One">
+<main
+  class='mt-16 p-4 bg-gray-3 rounded-md max-w-[800px] shadow-2xl'
+>
+  <div class='text-blue-1 flex justify-between text-lg w-full font-Poiret-One'>
     <h2>{{this.address}}</h2>
-    <h2 class="font-Roboto">
+    <h2 class='font-Roboto'>
       <time datetime={{this.datetime}}>
         {{this.time}}
-        {{this.dayOfWeek}}, 
+        {{this.dayOfWeek}},
         {{this.month}}
         {{this.day}}
       </time>
@@ -12,4 +14,5 @@
   </div>
   <Weather::Current />
   <Weather::Hourly />
+  <Weather::Week />
 </main>
