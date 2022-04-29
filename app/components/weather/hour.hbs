@@ -1,11 +1,44 @@
-<li
-  class='flex flex-col whitespace-nowrap rounded justify-center items-center w-max bg-gray-3 p-2 m-2 text-blue-1'
->
-  <time class='w-full text-center mb-2' datetime={{this.time.datetime}}>{{this.time.hour}}
-    {{this.time.amPm}}</time>
-  <img
-    src={{this.icon.src}}
-    alt={{this.icon.alt}}
-    class='w-16 h-16 max-w-[4rem] max-h-[4rem] min-w-[4rem] min-h-[4rem]'
-  />
+{{! template-lint-disable no-invalid-interactive }}
+<li class='rounded w-max bg-gray-3 p-2 m-2 text-blue-1 font-Roboto'>
+  <button
+    type='button'
+    class='w-full h-full flex flex-col whitespace-nowrap justify-center items-center'
+    {{on 'click' this.toggleShowInfo}}
+  >
+    {{#if this.infoIsExpanded}}
+      <time
+        class='w-full text-center mb-2'
+        datetime={{this.time.datetime}}
+      >{{this.time.hour}}:00
+        {{this.time.amPm}}</time>
+      <img
+        title={{this.weatherIcon.alt}}
+        src={{this.weatherIcon.weatherIcon}}
+        alt={{this.weatherIcon.alt}}
+        class='w-14 h-14 max-w-[3.5rem] max-h-[3.5rem] min-w-[3.5rem] min-h-[3.5rem]'
+      />
+      <p>{{this.temp}}°F</p>
+      <div class='flex justify-between items-center'>
+        <p class="mr-2">{{this.wind.speed}} mph</p>
+        <img
+          src={{this.wind.icon}}
+          style={{this.wind.windDegStyle}}
+          alt={{this.wind.alt}}
+          class='w-4 h-4 max-w-[1rem] max-h-[1rem] min-w-[1rem] min-h-[1rem]'
+        />
+      </div>
+      <p>Gusts: {{this.wind.gust}} mph</p>
+    {{else}}
+      <time
+        class='w-full text-center mb-2'
+        datetime={{this.time.datetime}}
+      >{{this.time.hour}}:00
+        {{this.time.amPm}}</time>
+      <img
+        src={{this.icon.src}}
+        alt={{this.icon.alt}}
+        class='w-16 h-16 max-w-[4rem] max-h-[4rem] min-w-[4rem] min-h-[4rem]'
+      />
+    {{/if}}
+  </button>
 </li>
