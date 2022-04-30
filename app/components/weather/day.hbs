@@ -5,7 +5,7 @@
     {{on 'click' this.toggleShowInfo}}
   >
   {{#if this.infoIsExpanded}}
-    <time datetime={{this.day.datetime}}>{{this.day.title}}</time>
+    <time class="mb-2" datetime={{this.day.datetime}}>{{this.day.title}}</time>
     <img
         title={{this.weatherIcon.alt}}
         src={{this.weatherIcon.weatherIcon}}
@@ -23,7 +23,7 @@
         />
       </div>
   {{else}}
-    <time datetime={{this.day.datetime}}>{{this.day.title}}</time>
+    <time class="mb-2" datetime={{this.day.datetime}}>{{this.day.title}}</time>
     <img
         src={{this.icon.src}}
         alt={{this.icon.alt}}

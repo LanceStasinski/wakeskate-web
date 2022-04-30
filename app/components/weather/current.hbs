@@ -1,7 +1,7 @@
 <section class='grid grid-cols-[50%_50%] font-Roboto text-blue-1 mt-4 w-full'>
   <div class='flex flex-col py-4 items-center justify-center'>
     <img
-      class='w-52 h-52'
+      class='w-28 h-28 max-w-[7rem] max-h-[7rem] min-w-[7rem] min-h-[7rem] md:w-52 md:h-52 md:max-w-[13rem] md:max-h-[13rem] md:min-w-[13rem] md:min-h-[13rem]'
       alt={{this.score.alt}}
       src={{this.score.imageSrc}}
     />
@@ -14,25 +14,29 @@
       <div
         class='flex flex-col items-center justify-center border-b-2 border-b-orange-1'
       >
-        <img src={{this.weatherData.icon}} alt={{this.weatherData.alt}} />
-        <p class='text-center'>{{this.weatherData.description}}</p>
+        <img
+          class='w-16 h-16 md:w-24 md:h-24'
+          src={{this.weatherData.icon}}
+          alt={{this.weatherData.alt}}
+        />
+        <p class='mb-1 sm:mb-0 text-center text-[10px] sm:text-base'>{{this.weatherData.description}}</p>
       </div>
       <div class='flex flex-col items-center justify-center text-center'>
-        <p class='text-2xl'>{{this.tempData.temp}}°F</p>
-        <p class='text-sm'>Feels like: {{this.tempData.feelsLike}}°F</p>
+        <p class='md:text-2xl'>{{this.tempData.temp}}°F</p>
+        <p class='mx-1 sm:mx-0 text-[10px] sm:text-sm'>Feels like: {{this.tempData.feelsLike}}°F</p>
       </div>
     </div>
     <div
       class='border-l-2 border-l-orange-1 flex flex-col items-center justify-center p-4 text-center'
     >
-      {{!-- template-lint-disable style-concatenation --}}
+      {{! template-lint-disable style-concatenation }}
       <img
-        class="w-40 h-40"
+        class='w-16 h-16 sm:w-40 sm:h-40'
         style={{this.windData.windDegStyle}}
         src={{this.windData.icon}}
         alt={{concat 'Orange arrow pointing ' this.windData.windDeg ' degrees'}}
       />
-      <p class='text-2xl'>{{this.windData.windSpeed}} mph</p>
+      <p class='md:text-2xl mt-2'>{{this.windData.windSpeed}} mph</p>
     </div>
   </div>
 </section>
