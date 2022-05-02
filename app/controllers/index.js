@@ -1,18 +1,46 @@
 import Controller from '@ember/controller';
+import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import ENV from 'wakeskate-web-2/config/environment';
+
 
 export default class IndexController extends Controller {
   @service('location') location;
 
-  @tracked isShowingMap = true;
+  @tracked isShowingMap = false;
   @tracked lat = this.location.location.lat;
   @tracked lng = this.location.location.lng;
+  @tracked showData = false;
 
   @action toggleModal() {}
 
   @action close() {
+    this.showData = true;
     this.isShowingMap = false;
+  }
+
+  @action async load() {
+    const coordinates = JSON.parse(localStorage.getItem('location'));
+
+    if (coordinates) {
+      const response = await fetch(`${ENV.REST_API}/weather`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(coordinates),
+      });
+      const weatherData = await response.json();
+      this.location.weather = weatherData;
+      this.location.location = {
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+      };
+      this.showData = true;
+    } else {
+      this.isShowingMap = true;
+    }
   }
 }

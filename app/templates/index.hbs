@@ -1,10 +1,10 @@
-<GeneralContainer>
+<GeneralContainer @load={{this.load}}>
   {{#if this.isShowingMap}}
     <Modal @onClick={{this.toggleModal}}>
       <Map @close={{this.close}} />
     </Modal>
   {{/if}}
-  {{#unless this.isShowingMap}}
+  {{#if this.showData}}
     <Weather />
-  {{/unless}}
+  {{/if}}
 </GeneralContainer>
