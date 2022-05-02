@@ -1,12 +1,10 @@
-{{!-- template-lint-disable no-invalid-interactive --}}
-<div {{did-insert @load}} class='w-screen h-screen flex justify-center'>
+<div class='w-screen h-screen flex justify-center' ...attributes>
   <div class='mx-4 md:mx-20 w-full flex flex-col items-center'>
-    <header class='w-full flex flex-row justify-between items-center mt-8'>
+    <header class='w-full flex flex-row justify-center items-center mt-8'>
       <h1
         data-test-title
-        class='font-Poiret-One text-4xl text-orange-1'
+        class='font-Poiret-One text-6xl text-orange-1'
       >Wakeskate?</h1>
-      <Settings />
     </header>
     {{yield}}
   </div>

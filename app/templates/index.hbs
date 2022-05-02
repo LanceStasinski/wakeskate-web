@@ -1,4 +1,4 @@
-<GeneralContainer @load={{this.load}}>
+<GeneralContainer {{did-insert this.load}} class="mb-10">
   {{#if this.isShowingMap}}
     <Modal @onClick={{this.toggleModal}}>
       <Map @close={{this.close}} />
@@ -6,5 +6,8 @@
   {{/if}}
   {{#if this.showData}}
     <Weather />
+    <div class="w-full flex justify-center text-center my-4">
+      <BlueButton {{on 'click' this.toggleModal}}>Change Location</BlueButton>
+    </div>
   {{/if}}
 </GeneralContainer>
