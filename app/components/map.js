@@ -40,7 +40,14 @@ export default class MapComponent extends Component {
       lng: this.lng,
     };
 
-    localStorage.setItem('location', JSON.stringify(coordinates));
+    localStorage.setItem(
+      'location',
+      JSON.stringify({
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+        address: this.location.address,
+      })
+    );
 
     const response = await fetch(`${ENV.REST_API}/weather`, {
       method: 'POST',

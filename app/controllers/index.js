@@ -5,7 +5,6 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import ENV from 'wakeskate-web-2/config/environment';
 
-
 export default class IndexController extends Controller {
   @service('location') location;
 
@@ -22,21 +21,23 @@ export default class IndexController extends Controller {
   }
 
   @action async load() {
-    const coordinates = JSON.parse(localStorage.getItem('location'));
+    const locationInfo = JSON.parse(localStorage.getItem('location'));
 
-    if (coordinates) {
+    if (locationInfo) {
+      const { lat, lng } = locationInfo;
       const response = await fetch(`${ENV.REST_API}/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(coordinates),
+        body: JSON.stringify({ lat, lng }),
       });
       const weatherData = await response.json();
+      this.location.address = locationInfo.address;
       this.location.weather = weatherData;
       this.location.location = {
-        lat: coordinates.lat,
-        lng: coordinates.lng,
+        lat: locationInfo.lat,
+        lng: locationInfo.lng,
       };
       this.showData = true;
     } else {
