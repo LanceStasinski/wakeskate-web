@@ -28,7 +28,7 @@ export default class WeatherDayComponent extends Component {
     const icon = this.args.day.weatherInfo.icon;
     const alt = this.args.day.weatherInfo.description;
     return {
-      weatherIcon: `http://openweathermap.org/img/wn/${icon}@2x.png`,
+      weatherIcon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
       alt,
     };
   }

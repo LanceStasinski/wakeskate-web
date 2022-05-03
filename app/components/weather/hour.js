@@ -29,7 +29,7 @@ export default class WeatherHourComponent extends Component {
     const icon = this.args.hour.weatherInfo.icon;
     const alt = this.args.hour.weatherInfo.description;
     return {
-      weatherIcon: `http://openweathermap.org/img/wn/${icon}@2x.png`,
+      weatherIcon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
       alt,
     };
   }

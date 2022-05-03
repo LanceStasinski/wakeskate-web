@@ -46,7 +46,7 @@ export default class WeatherCurrentComponent extends Component {
 
   get weatherData() {
     const { weatherInfo } = this.getCurrentInfo();
-    const icon = `http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
+    const icon = `https://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
     const alt = weatherInfo.main;
     const weatherString = weatherInfo.description;
     const description =

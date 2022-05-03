@@ -5,6 +5,7 @@ import fetch from 'fetch';
 import ENV from 'wakeskate-web-2/config/environment';
 import { inject as service } from '@ember/service';
 
+
 export default class MapComponent extends Component {
   @service('location') location;
 
@@ -17,7 +18,7 @@ export default class MapComponent extends Component {
     event.preventDefault();
     this.location.address = this.query;
     const data = { location: this.query };
-    const response = await fetch(`${ENV.REST_API}/geocode/`, {
+    const response = await fetch(`api/geocode/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ export default class MapComponent extends Component {
       })
     );
 
-    const response = await fetch(`${ENV.REST_API}/weather`, {
+    const response = await fetch(`api/weather`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +63,6 @@ export default class MapComponent extends Component {
       lat: this.lat,
       lng: this.lng,
     };
-    console.log(this.location.weather);
     close();
   }
 }

@@ -34,7 +34,7 @@ export default class IndexController extends Controller {
 
     if (locationInfo) {
       const { lat, lng } = locationInfo;
-      const response = await fetch(`${ENV.REST_API}/weather`, {
+      const response = await fetch(`api/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
