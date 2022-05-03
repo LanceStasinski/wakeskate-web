@@ -12,6 +12,7 @@ export default class IndexController extends Controller {
   @tracked lat = this.location.location.lat;
   @tracked lng = this.location.location.lng;
   @tracked showData = false;
+  @tracked showInfo = false;
 
   @action toggleModal() {
     if (this.location.address) {
@@ -22,6 +23,10 @@ export default class IndexController extends Controller {
   @action close() {
     this.showData = true;
     this.isShowingMap = false;
+  }
+
+  @action toggleInfo() {
+    this.showInfo = !this.showInfo;
   }
 
   @action async load() {

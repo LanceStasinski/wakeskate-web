@@ -16,6 +16,6 @@
   <Weather::Hourly />
   <Weather::Week />
   <div class='w-full flex justify-end'>
-    <MoreInfo />
+    <MoreInfo {{on 'click' @onToggleInfo}}/>
   </div>
 </main>

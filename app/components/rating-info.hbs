@@ -1,0 +1,28 @@
+<div class='text-gray-1'>
+  <h2 class='font-Poiret-One text-2xl'>How This Works</h2>
+  <p class='mb-4 font-light'>The conditions are rated into five categories based
+    on temperature, wind, and weather.</p>
+  <ul>
+    {{! not going to work probably }}
+    {{#each this.rating as |rating|}}
+      <li
+        class='flex flex-col items-center justify-center md:grid md:grid-cols-[6rem_15rem_1fr] font-Roboto my-4'
+      >
+        <img
+          class='w-16 h-16 max-w-[4rem] max-h-[4rem] min-w-[4rem] min-h-[4rem]'
+          src={{rating.img}}
+          alt={{rating.alt}}
+        />
+        <div class='md:flex md:items-center'>
+          <h3 class='text-lg'>{{rating.rating}}</h3>
+        </div>
+        <div class='md:flex md:items-center'>
+          <p class='text-center md:text-left'>{{rating.description}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  <div class="w-full flex justify-center mt-4">
+    <BlueButton {{on 'click' @onClose}}>Close</BlueButton>
+  </div>
+</div>
