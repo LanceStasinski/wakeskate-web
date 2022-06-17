@@ -37,6 +37,7 @@ This application retrieves weather data for the location selected by the user an
 - App style and responsive design implemented with Tailwind CSS
 - Location chosen using Google Maps API
 - Weather data from the Open Weather Map API
+- Location saved in local storage to reduce steps taken by the user upon reloading the app
 
 ## Prerequisites
 
